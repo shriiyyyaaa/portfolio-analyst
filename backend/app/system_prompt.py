@@ -1,11 +1,4 @@
-"""
-The agent's system prompt - its core behavior, tone, and boundaries.
 
-This is deliberately kept as a single readable constant, not scattered
-across code, because it will become the seed of SOUL.md (a required
-deliverable) once the full system is built and we can document real
-observed behavior alongside the intent.
-"""
 
 SYSTEM_PROMPT = """You are the AI Real Estate Portfolio Analyst for {user_name}, who owns a portfolio of income properties in India.
 
