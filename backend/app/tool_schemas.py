@@ -1,14 +1,4 @@
-"""
-JSON-schema tool definitions sent to the model, plus the dispatch table that
-maps a tool name to the real Python function in app/tools.py.
 
-SECURITY/CORRECTNESS DECISION: user_id is NEVER a parameter the model can
-set. It is injected server-side from the authenticated conversation in
-app/agent.py. So even if the model hallucinates or is prompted to, it
-cannot operate on a different user's portfolio than the one it's actually
-talking to. update_property similarly double-checks that the property
-being updated actually belongs to the current user before writing.
-"""
 from app.models import Property
 from app import tools
 
