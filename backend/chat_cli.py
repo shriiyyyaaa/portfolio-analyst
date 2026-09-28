@@ -1,11 +1,4 @@
-"""
-Interactive terminal chat - talk to your agent right now, before we build
-any UI. Makes real calls to OpenRouter, so OPENROUTER_API_KEY must be set
-in your .env.
 
-Run from backend/ (venv active):
-    python chat_cli.py
-"""
 from app.agent import handle_user_message
 from app.database import Base, SessionLocal, engine
 from app.models import Conversation, Message, ModelCall, ToolCall, User
