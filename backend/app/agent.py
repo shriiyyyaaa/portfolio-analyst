@@ -1,16 +1,4 @@
-"""
-Agent orchestration loop.
 
-Flow: user message -> model (given tools) -> if the model requests tool
-calls, execute them and feed results back -> repeat until the model
-answers in plain text (or we hit a safety cap on iterations).
-
-Also owns conversation memory: it loads the last few STORED messages as
-context, but deliberately replays only final assistant text, not the raw
-tool-call JSON from earlier turns. This keeps each request's token count
-(and therefore latency/cost) roughly constant as a conversation grows,
-rather than replaying an ever-larger tool-call transcript every turn.
-"""
 import json
 import time
 
