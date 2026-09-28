@@ -1,11 +1,4 @@
-"""
-Thin wrapper around OpenRouter's chat completions endpoint.
 
-OpenRouter exposes an OpenAI-compatible API, so we talk to it with plain
-httpx POST requests instead of pulling in the full openai SDK - one fewer
-dependency, and it keeps exactly what's sent/received visible, which
-matters for the latency logging this project needs anyway.
-"""
 import time
 
 import httpx
