@@ -1,11 +1,4 @@
-"""
-Validates the tool functions against the assignment's OWN sample_requests.csv
-expectations (R001-R006), using an isolated in-memory database so it never
-touches your real portfolio.db.
 
-Run from backend/ (with venv active):
-    python test_tools.py
-"""
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
