@@ -1,13 +1,4 @@
-"""
-Loads users.csv and properties.csv from data/ into the database.
 
-Idempotent: safe to re-run. Existing rows (matched by primary key) are
-updated in place rather than duplicated, so you can re-run this after
-editing the CSVs during development.
-
-Run from the backend/ directory (with venv active):
-    python -m app.seed
-"""
 import csv
 import os
 
