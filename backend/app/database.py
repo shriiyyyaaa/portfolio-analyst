@@ -1,11 +1,4 @@
-"""
-Database connection setup.
 
-Uses SQLite by default (a single file, zero setup - perfect for this
-project's data size). Swap DATABASE_URL in .env to a Postgres URL later
-if you deploy somewhere without persistent disk, and nothing else in the
-codebase needs to change.
-"""
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
