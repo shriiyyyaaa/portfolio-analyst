@@ -1,10 +1,4 @@
-"""
-FastAPI application entrypoint.
 
-For Step 1 this just: creates the database tables and exposes a health
-check. Step 2 adds data loading + tool endpoints; Step 3 adds the agent
-chat endpoint.
-"""
 from typing import Optional
 
 from fastapi import Depends, FastAPI, Header, HTTPException
