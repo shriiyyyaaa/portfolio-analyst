@@ -24,11 +24,11 @@ from app.schemas import (
     UserSummary,
 )
 from app.seed import load_properties, load_users
-from app import models  # noqa: F401 - import so tables register with Base
+from app import models  
 
 app = FastAPI(title="AI Real Estate Portfolio Analyst")
 
-# Allowed origins come from CORS_ORIGINS ("*" for local dev; set to the frontend URL in production).
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[o.strip() for o in settings.cors_origins.split(",") if o.strip()],
@@ -40,8 +40,7 @@ app.add_middleware(
 @app.on_event("startup")
 def on_startup():
     Base.metadata.create_all(bind=engine)
-    # Seed the provided dataset only into an EMPTY database, so a restart never overwrites
-    # edits made through the chat. (python -m app.seed force-reloads the CSVs.)
+   
     db = SessionLocal()
     try:
         if db.query(User).count() == 0:
