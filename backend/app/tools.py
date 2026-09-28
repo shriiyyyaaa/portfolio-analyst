@@ -1,25 +1,4 @@
-"""
-Deterministic tool functions.
 
-These are the ONLY place numbers get computed. The agent (Step 3) will call
-these as function-calling "tools" and just narrate the results - it never
-does arithmetic itself. Every function here takes a plain SQLAlchemy
-session and returns plain dicts/lists (JSON-serializable), so they're easy
-to unit test now and easy to expose to an LLM tool-calling loop later.
-
-Design notes:
-- "Exposure" and "comparison" tools group by normalized_type, not the raw
-  property_type column (see normalization.py for why).
-- Rental yield here means CURRENT gross yield = annual_rent / current value.
-  We do NOT attempt purchase-price-based yield or appreciation, because
-  purchase_price_inr is missing for every row and there are no dates in the
-  dataset at all - inventing either would be dishonest. Tools return
-  yield=None when it can't be computed, and the agent must surface that
-  honestly rather than guessing.
-- simulate_exclusion is read-only: it recomputes a summary over a subset of
-  properties without touching the database, which is exactly the mechanism
-  behind "what if I exclude X" conversations in Step 3.
-"""
 from app.models import Property, User
 from app.normalization import normalize_property_type
 
